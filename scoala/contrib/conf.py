@@ -1,7 +1,7 @@
 __author__ = 'vic'
 
 
-"""  server 192.168.1.111 """
+"""  server 192.168 """
 mysql_server = {
           'host': '192.168',
           'user': 'root',
