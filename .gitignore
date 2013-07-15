@@ -1,0 +1,13 @@
+*.pyc
+.project
+.pydevproject
+.settings/*
+/data/*
+/data
+*/test/*
+*test.yaml
+*nohup
+*.out
+*.json
+koala/conf/
+scoala/contrib/*
