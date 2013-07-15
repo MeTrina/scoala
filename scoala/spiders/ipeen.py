@@ -16,36 +16,36 @@ class IpeenSpider(CrawlSpider):
     allowed_domains = ['ipeen.com.tw']
     # start_urls = ['http://www.ipeen.com.tw/']
     start_urls = [
-        'http://www.ipeen.com.tw/search/taipei/d6/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d7/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d8/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d9/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d10/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d11/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d12/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d13/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d14/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d15/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d16/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d17/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d18/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d19/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d20/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d21/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d22/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d23/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d24/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d25/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d26/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d27/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d28/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d29/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d30/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d31/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d32/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d33/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d34/1-0-0-0/',
-        'http://www.ipeen.com.tw/search/taipei/d35/1-0-0-0/'
+        'http://www.ipeen.com.tw/search/taipei/d6/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d7/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d8/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d9/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d10/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d11/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d12/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d13/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d14/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d15/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d16/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d17/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d18/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d19/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d20/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d21/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d22/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d23/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d24/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d25/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d26/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d27/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d28/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d29/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d30/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d31/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d32/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d33/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d34/6-100-0-0/',
+        'http://www.ipeen.com.tw/search/taipei/d35/6-100-0-0/'
     ]
 
     # rules = (
@@ -65,13 +65,13 @@ class IpeenSpider(CrawlSpider):
         hxs = HtmlXPathSelector(response)
 
         # --ok--
-        shop_list_page = hxs.select(u'//*[@id="search"]/article/div[3]/div[1]/label[2]/a/@href').extract()
+        shop_list_page = hxs.select('//*[@id="search"]/article/div[3]/div[1]/label[2]/a/@href').extract()
         if shop_list_page and shop_list_page[0]:
             page_account = int(shop_list_page[0].split("=")[-1])
-        for page in xrange(1, page_account+1):
-            # print  "p=%s" % page
-            url = re.sub(r'p=\d*', 'p=%s' % page, shop_list_page[0])
-            yield Request(url=url, callback=self.parse_profile)
+            for page in xrange(1, page_account+1):
+                # print  "p=%s" % page
+                url = re.sub(r'p=\d*', 'p=%s' % page, shop_list_page[0])
+                yield Request(url=url, callback=self.parse_profile)
 
     def parse_profile(self, response):
         hxs = HtmlXPathSelector(response)
