@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 # Define here the models for your scraped items
 #
 # See documentation in:
@@ -31,6 +32,7 @@ class IpeenItem(Item):
     domain_id = Field()
     domain_url = Field()
     site_name = Field()
+    page_url = Field()
 
     # traffic = Field()
     # seats = Field()
@@ -46,8 +48,8 @@ class IpeenItem(Item):
     # average = Field()
     # location = Field()
 
-    def __str__(self):
-        return 'IpeenItem(url: %s)' % self.url
+    # def __str__(self):
+    #     return 'IpeenItem(url: %s)' % self.url
 
 class ShopProfileItem(Item):
     id = Field()

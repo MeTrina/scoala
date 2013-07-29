@@ -11,3 +11,5 @@
 *.json
 koala/conf/
 scoala/contrib/
+*.log
+.gitignore~

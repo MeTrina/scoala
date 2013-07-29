@@ -14,7 +14,7 @@ import time
 import MySQLdb.cursors
 from scrapy import signals
 from scrapy.xlib.pydispatch import dispatcher
-from scrapy.contrib.conf.py import mysql_server
+from scrapy.contrib.conf import mysql_server
 
 
 class SQLiteStorePipeline(object):
@@ -51,29 +51,29 @@ class SQLiteStorePipeline(object):
 
 
 class MySQLStorePipeline(object):
-
     def __init__(self):
         self.conn = MySQLdb.connect(host=mysql_server['host'], user=mysql_server['user'],
                                     passwd=mysql_server['pwd'], db='data_mining_xcj', charset=mysql_server['charset'])
         self.cursor = self.conn.cursor()
 
     def process_item(self, item, spider):
-        try:
-            self.cursor.execute("INSERT INTO ipeen_shop ( \
-            id, name, cate, price, score, keywords, image_url, longitude, \
-            latitude, type, phone_number, address, opening_hours, off_day, description, \
-            url, domain_id, domain_url, site_name) \
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                                (
-                               item["id"], item["name"], item["cate"], item["price"],
-                               item["score"], item['keywords'], item["image_url"],
-                               item["longitude"], item["latitude"], item["type"], item["phone_number"],
-                               item["address"], item["opening_hours"], item["off_day"], item['description'],
-                               item['url'], item['domain_id'], item['domain_url'], item["site_name"]
-                                )
-            )
-            self.conn.commit()
-        except MySQLdb.Error, e:
-            print "Error %d: %s" % (e.args[0], e.args[1])
-        return item
+        if item:
+            try:
+                self.cursor.execute("INSERT ignore INTO  ipeen_shop ( \
+                id, name, cate, price, score, keywords, image_url, longitude, \
+                latitude, type, phone_number, address, opening_hours, off_day, description, \
+                url, domain_id, domain_url, page_url) \
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                    (
+                                        item["id"], item["name"], item["cate"], item["price"],
+                                        item["score"], item['keywords'], item["image_url"],
+                                        item["longitude"], item["latitude"], item["type"], item["phone_number"],
+                                        item["address"], item["opening_hours"], item["off_day"], item['description'],
+                                        item['url'], item['domain_id'], item['domain_url'], item['page_url']
+                                    )
+                )
+                self.conn.commit()
+            except MySQLdb.Error, e:
+                print "Error %d: %s" % (e.args[0], e.args[1])
+            return item
 

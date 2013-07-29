@@ -14,5 +14,5 @@ NEWSPIDER_MODULE = 'scoala.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scoala (+http://www.yourdomain.com)'
 
-DEFAULT_ITEM_CLASS = 'scoala.items.IpeenItem'
-ITEM_PIPELINES = ['scoala.pipelines.MySQLStorePipeline']
+# DEFAULT_ITEM_CLASS = 'scoala.items.IpeenItem'
+# ITEM_PIPELINES = ['scoala.pipelines.MySQLStorePipeline']
