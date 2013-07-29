@@ -14,7 +14,7 @@ import time
 import MySQLdb.cursors
 from scrapy import signals
 from scrapy.xlib.pydispatch import dispatcher
-from scrapy.contrib.conf import mysql_server
+from scrapy.contrib.settings import mysql_server
 
 
 class SQLiteStorePipeline(object):

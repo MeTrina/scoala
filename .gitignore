@@ -13,3 +13,4 @@ koala/conf/
 scoala/contrib/
 *.log
 .gitignore~
+*conf.py
